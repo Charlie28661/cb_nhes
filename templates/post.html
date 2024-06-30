@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有貼文</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.chat-container {
+    width: 470px;
+    margin: 0 auto;
+}
+
+.chat-box {
+    border: 2px solid #333;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+.number {
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+    margin-top: 3px;
+}
+
+.text {
+    color: #fff;
+    word-wrap: break-word;
+    font-size: larger;
+}
+
+.time {
+    color: #fff;
+    word-wrap: break-word;
+    font-size: small;
+    text-align: right;
+}
+
+img {
+    border-radius: 150px;
+    margin-right: 7px;
+}
+
+.guest {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 5px;
+    justify-content: center;
+}
+
+.comment_reply input[name=stex-number]{
+    width: 80px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.comment_reply input[name=nickname]{
+    width: 120px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.comment_reply input[name=comment_reply]{
+    width: 250px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.comment_reply button{
+    height: 26px;
+}
+
+.reply_text {
+    color: black;
+}
+
+.reply_time {
+    text-align: end;
+    margin-top: 8px;
+    font-size: 10px;
+}
+
+@media (max-width: 500px) {
+
+    .chat-container {
+    width: 350px;
+    }
+
+    .message {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        border-radius: 10px;
+    }
+
+    .number {
+        font-size: 30px;
+    }
+
+    .comment_reply input[name=nickname]{
+        width: 80px;
+    }
+
+    .comment_reply input[name=comment_reply]{
+        width: 160px;
+    }
+
+    .comment_reply button{
+        height: 26px;
+    }
+}
+
+</style>
+
+<body>
+    <div class="chat-container">
+        {% for message in messages %}
+            <div class="chat-box">
+                <div class="message">
+                    <div class="guest">
+                        <img src="../static/guest1.png" alt="guest">
+                        <div class="number" id="{{ message.number }}">貼文編號 #{{ message.number }}</div>
+                    </div>
+                    <br>
+                    <div class="text">{{ message.content }}</div>
+                    <br>
+                    <div class="time">投稿時間: {{ message.created_at }}</div>
+                </div>
+                <div class="comment_reply">
+                    <form action="{{ url_for('post') }}" method="post">
+                        <input type="text" name="stex-number" value="{{ message.number }}" hidden>
+                        <input type="text" placeholder="暱稱" name="nickname" required>
+                        <input type="text" placeholder="留言..." name="comment_reply" required>
+                        <button type="submit">送出</button>
+                    </form>
+                </div>
+                <hr>
+                <div class="reply_text">
+                    {% for reply in replyss if reply.number == message.number %}
+                        <li>來自 {{ reply.nickname }} 的回覆: {{ reply.content }}</li><p class="reply_time">{{ reply.time }}</p>
+                        <br>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>XX 首頁</title>
+</head>
+<style>
+	body {
+		background-image: url(../static/background.png);
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.main-border {
+		height: 500px;
+		width: 800px;
+		border: 4px solid #000000;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fdf5e6 ;
+	}
+
+	.main-border-top {
+		border-bottom: 4px solid #000000;
+		height: 80px;
+		background-color: pink;
+	}
+
+	.main-title {
+		font-size: 60px;
+		display: flex;
+		justify-content: center;
+		text-transform: uppercase;
+		letter-spacing: 8px;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	}
+
+	.button-56 {
+		align-items: center;
+		background-color: #fee6e3;
+		border: 2px solid #111;
+		border-radius: 8px;
+		box-sizing: border-box;
+		color: #111;
+		cursor: pointer;
+		display: flex;
+		font-family: Inter,sans-serif;
+		font-size: 16px;
+		height: 48px;
+		justify-content: center;
+		line-height: 24px;
+		max-width: 100%;
+		padding: 0 25px;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+	}
+
+	.button-56:after {
+		background-color: #111;
+		border-radius: 8px;
+		content: "";
+		display: block;
+		height: 48px;
+		left: 0;
+		width: 100%;
+		position: absolute;
+		top: -2px;
+		transform: translate(8px, 8px);
+		transition: transform .2s ease-out;
+		z-index: -1;
+	}
+
+	.button-56:hover:after {
+		transform: translate(0, 0);
+	}
+
+	.button-56:active {
+		background-color: #ffdeda;
+		outline: 0;
+	}
+
+	.button-56:hover {
+		outline: 0;
+	}
+
+	
+
+
+	@media (min-width: 768px) {
+		.button-56 {
+			padding: 0 40px;
+		}
+	}
+
+	.button_cho {
+		display: flex;
+		justify-content: space-evenly;
+		margin-top: 50px;
+	}
+
+	.button_cho a {
+		color: black;
+	}
+
+	.rules {
+		text-align: center;
+	}
+
+	@media (max-width: 500px) {
+
+		.main-border {
+			height: 600px;
+			width: 350px;
+		}
+
+		.main-title {
+		font-size: 50px;
+		letter-spacing: 4px;
+		position: absolute;
+		top: 40px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+		
+	.button_cho {
+		display: block;
+		position: absolute;
+		top: 430px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.button_cho button {
+		margin-top: 15px;
+	}
+
+	.button-56 {
+		width: 200px;
+	}
+	
+	marquee {
+		width: 100%;
+	}
+}
+
+</style>
+<body>
+	<!-- <marquee style="color: red; background-color: white;">!!公告!!時間系統尚未修復完畢，我們將暫時移除時間相關顯示。</marquee> -->
+	<div class="main-border">
+		<div class="main-border-top">
+			<span class="main-title">cb_nhes</span>
+		</div>
+
+		<div class="rules">
+			<p>投稿前請詳閱以下規則:<br><br>
+			1.靠北貼文請不要提及全名，可提及班級或自行打碼<br>
+			2.請文雅一點，不要人身攻擊<br>
+			3.這是全程匿名的，可以放心留言<br><br>
+			若貼文被提及者感到不舒服，可以透過貼文申告系統向我們反應<br>
+			步驟: 「聯絡我們」→「貼文申告」<br><br>
+			若違反上述規則，我們有權刪除你的貼文<br>
+			⚠️投稿留言皆與我們無關，請自行負責⚠️</p>
+		</div>
+
+		<div class="button_cho">
+			<a href="add.html"><button class="button-56" role="button">新增貼文</button></a>
+			<a href="post.html"><button class="button-56" role="button">查看貼文</button></a>
+			<a href="support.html"><button class="button-56" role="button">聯絡我們</button></a>
+		</div>
+
+	</div>
+	
+</body>
+</html>

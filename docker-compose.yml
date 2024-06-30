@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    networks:
+      - external_network
+
+networks:
+  external_network:
+    driver: bridge
